@@ -37,7 +37,7 @@ opt.number = true
 opt.relativenumber = true
 opt.signcolumn = "yes"
 opt.termguicolors = true
-opt.background = "dark"
+-- opt.background = "dark"
 opt.scrolloff = 6
 opt.sidescrolloff = 6
 opt.wrap = false
@@ -59,6 +59,7 @@ vim.pack.add({
     "https://github.com/nvim-telescope/telescope.nvim",
     "https://github.com/sphamba/smear-cursor.nvim",
     "https://github.com/nvim-lualine/lualine.nvim",
+    "https://github.com/lukas-reineke/indent-blankline.nvim",
     "https://github.com/mason-org/mason.nvim",
     "https://github.com/mason-org/mason-lspconfig.nvim",
     "https://github.com/neovim/nvim-lspconfig",
@@ -67,7 +68,7 @@ vim.pack.add({
 }, { confirm = false, load = true })
 
 require("catppuccin").setup({
-    flavour = "mocha",
+    flavour = "latte",
     transparent_background = false,
     integrations = {
         telescope = { enabled = true },
@@ -78,6 +79,11 @@ require("catppuccin").setup({
     },
 })
 vim.cmd.colorscheme("catppuccin")
+
+require("ibl").setup({
+    indent = { char = "│" },
+    scope = { enabled = false },
+})
 
 require("lualine").setup({
     options = {
