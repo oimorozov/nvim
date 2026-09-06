@@ -68,7 +68,7 @@ vim.pack.add({
 }, { confirm = false, load = true })
 
 require("catppuccin").setup({
-    flavour = "latte",
+    flavour = "mocha",
     transparent_background = false,
     integrations = {
         telescope = { enabled = true },
@@ -124,6 +124,16 @@ require("smear_cursor").setup({
     smear_between_neighbor_lines = true,
     scroll_buffer_space = true,
     smear_insert_mode = true,
+    never_draw_over_target = true,
+    hide_target_hack = true,
+    time_interval = 10,
+    stiffness = 0.45,
+    trailing_stiffness = 0.22,
+    trailing_exponent = 2,
+    damping = 0.75,
+    stiffness_insert_mode = 0.4,
+    trailing_stiffness_insert_mode = 0.25,
+    damping_insert_mode = 0.8,
 })
 
 require("telescope").setup({
