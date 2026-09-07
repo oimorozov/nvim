@@ -5,6 +5,7 @@ vim.g.mapleader = " "
 vim.cmd("filetype plugin indent on")
 vim.cmd("syntax enable")
 
+-- отступы
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
@@ -12,6 +13,7 @@ opt.smartindent = true
 opt.autoindent = true
 opt.shiftround = true
 
+-- 
 opt.encoding = "utf-8"
 opt.fileencoding = "utf-8"
 opt.fileencodings = { "utf-8", "ucs-bom", "cp1251", "koi8-r", "latin1" }
@@ -26,6 +28,7 @@ opt.writebackup = false
 opt.clipboard = "unnamedplus"
 opt.mouse = "a"
 
+-- поиск
 opt.ignorecase = true
 opt.smartcase = true
 opt.incsearch = true
@@ -33,11 +36,13 @@ opt.hlsearch = true
 opt.wrapscan = true
 opt.inccommand = "split"
 
+-- редактор
+opt.guicursor = "a:block"
 opt.number = true
 opt.relativenumber = true
 opt.signcolumn = "yes"
 opt.termguicolors = true
--- opt.background = "dark"
+opt.background = "dark"
 opt.scrolloff = 6
 opt.sidescrolloff = 6
 opt.wrap = false
@@ -52,12 +57,10 @@ opt.winborder = "rounded"
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Убрать подсветку поиска" })
 
 vim.pack.add({
-    { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
     "https://github.com/folke/which-key.nvim",
     "https://github.com/nvim-tree/nvim-tree.lua",
     "https://github.com/nvim-lua/plenary.nvim",
     "https://github.com/nvim-telescope/telescope.nvim",
-    "https://github.com/sphamba/smear-cursor.nvim",
     "https://github.com/nvim-lualine/lualine.nvim",
     "https://github.com/lukas-reineke/indent-blankline.nvim",
     "https://github.com/mason-org/mason.nvim",
@@ -67,18 +70,7 @@ vim.pack.add({
     "https://github.com/saghen/blink.cmp",
 }, { confirm = false, load = true })
 
-require("catppuccin").setup({
-    flavour = "mocha",
-    transparent_background = false,
-    integrations = {
-        telescope = { enabled = true },
-        which_key = true,
-        nvimtree = true,
-        blink_cmp = { style = "bordered" },
-        mason = true,
-    },
-})
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("bark")
 
 require("ibl").setup({
     indent = { char = "│" },
@@ -87,7 +79,7 @@ require("ibl").setup({
 
 require("lualine").setup({
     options = {
-        theme = "catppuccin-nvim",
+        theme = "auto",
         icons_enabled = false,
         globalstatus = true,
         component_separators = "",
@@ -117,24 +109,6 @@ require("lualine").setup({
         lualine_z = {},
     },
     extensions = { "nvim-tree", "quickfix" },
-})
-
-require("smear_cursor").setup({
-    smear_between_buffers = true,
-    smear_between_neighbor_lines = true,
-    scroll_buffer_space = true,
-    smear_insert_mode = true,
-    never_draw_over_target = true,
-    hide_target_hack = true,
-    time_interval = 10,
-    stiffness = 0.8,
-    trailing_stiffness = 0.5,
-    distance_stop_animating = 0.5,
-    trailing_exponent = 2,
-    damping = 0.75,
-    stiffness_insert_mode = 0.4,
-    trailing_stiffness_insert_mode = 0.25,
-    damping_insert_mode = 0.8,
 })
 
 require("telescope").setup({
