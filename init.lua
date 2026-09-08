@@ -13,7 +13,7 @@ opt.smartindent = true
 opt.autoindent = true
 opt.shiftround = true
 
--- 
+--
 opt.encoding = "utf-8"
 opt.fileencoding = "utf-8"
 opt.fileencodings = { "utf-8", "ucs-bom", "cp1251", "koi8-r", "latin1" }
@@ -53,6 +53,7 @@ opt.laststatus = 3
 opt.completeopt = { "menu", "menuone", "noselect" }
 opt.updatetime = 200
 opt.winborder = "rounded"
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Выйти в n в терминале" })
 
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Убрать подсветку поиска" })
 
@@ -235,5 +236,19 @@ require("nvim-tree").setup({
         indent_markers = { enable = true },
     },
     update_focused_file = { enable = true },
+    filters = {
+        dotfiles = false,
+        git_clean = false,
+        no_buffer = false,
+        custom = {},
+        exclude = {},
+    },
+    git = {
+        enable = true,
+        ignore = false,
+        show_on_dirs = true,
+        show_on_open_dirs = true,
+        timeout = 400,
+    },
 })
 map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Файловое дерево" })
