@@ -57,7 +57,7 @@ vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Выйти в n в тер
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Убрать подсветку поиска" })
 
 vim.pack.add({
-    "https://github.com/miikanissi/modus-themes.nvim",
+    "https://github.com/vague-theme/vague.nvim",
     "https://github.com/folke/which-key.nvim",
     "https://github.com/nvim-tree/nvim-tree.lua",
     "https://github.com/nvim-lua/plenary.nvim",
@@ -71,21 +71,7 @@ vim.pack.add({
     "https://github.com/saghen/blink.cmp",
 }, { confirm = false, load = true })
 
-require("modus-themes").setup({
-    style = "modus_vivendi",
-    variants = { modus_vivendi = "default" },
-    transparent = false,
-    dim_inactive = false,
-    line_nr_column_background = false,
-    sign_column_background = false,
-    on_highlights = function(hl, colors)
-        hl.CursorLineNr.bg = colors.bg_main
-        hl.FoldColumn.bg = colors.bg_main
-        hl.NvimTreeNormal.bg = colors.bg_main
-        hl.NvimTreeNormalNC.bg = colors.bg_main
-    end,
-})
-vim.cmd.colorscheme("modus_vivendi")
+vim.cmd.colorscheme("vague")
 
 require("ibl").setup({
     indent = { char = "│" },
