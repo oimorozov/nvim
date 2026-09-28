@@ -71,6 +71,7 @@ vim.pack.add({
     "https://github.com/saghen/blink.cmp",
 }, { confirm = false, load = true })
 
+require("vague").setup({ transparent = true, })
 vim.cmd.colorscheme("vague")
 
 require("ibl").setup({
