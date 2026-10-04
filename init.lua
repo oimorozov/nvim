@@ -189,12 +189,16 @@ vim.lsp.config("clangd", {
     },
 })
 
+vim.lsp.config("pyright", {
+    capabilities = capabilities,
+})
+
 require("mason").setup({
     ui = { border = "rounded" },
 })
 require("mason-lspconfig").setup({
-    ensure_installed = { "lua_ls", "clangd" },
-    automatic_enable = { "lua_ls", "clangd" },
+    ensure_installed = { "lua_ls", "clangd", "pyright" },
+    automatic_enable = { "lua_ls", "clangd", "pyright" },
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
